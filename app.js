@@ -41,7 +41,7 @@ app.use(passport.session());
 
 
 app.get('/', function(req, res) {
-  res.sendFile(__dirname, 'client/build', 'index.html');
+  res.sendFile(__dirname, 'client/build/public', 'index.html');
 });
 
 let socketIds = [];
