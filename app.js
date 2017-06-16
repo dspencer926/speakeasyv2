@@ -21,7 +21,7 @@ server.listen(PORT, function() {
 
 // socket = io.listen(server);
 
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(cors());
 app.use(logger('dev'));
 app.use(cookieParser());
@@ -85,6 +85,6 @@ app.use('/testing', (req, res) => {
 
 
 /* handling 404 */
-app.get('*', function(req, res) {
-  res.status(404).send({message: 'Oops! Not found.'});
-});
+app.get('/*', function (req, res) {
+   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+ });
