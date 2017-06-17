@@ -13,7 +13,7 @@ var io = require('socket.io').listen(server);
 
 require('dotenv').config()
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('/static', express.static(path.join(__dirname, 'client/build')));
 
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, function() {
@@ -41,7 +41,7 @@ app.use(passport.session());
 
 
 app.get('/', function(req, res) {
-  res.sendFile(__dirname, 'index.html');
+  res.sendFile(__dirname + '/client/build/index.html');
 });
 
 let socketIds = [];
