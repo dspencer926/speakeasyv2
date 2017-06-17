@@ -40,9 +40,9 @@ app.use(passport.session());
 
 
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/static/index.html');
-});
+app.get('/*', function (req, res) {
+   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+ });
 
 let socketIds = [];
 
@@ -85,6 +85,3 @@ app.use('/testing', (req, res) => {
 
 
 /* handling 404 */
-app.get('/*', function (req, res) {
-   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
- });
