@@ -80,7 +80,7 @@ app.use('/testing', (req, res) => {
     res.send({user: req.user, auth: true});
 });
 
-app.get('/client', function (req, res) {
+app.use('/client', function (req, res) {
    res.sendFile(path.join(__dirname, 'client/build/index.html'));
  });
 
