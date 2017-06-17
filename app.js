@@ -80,8 +80,8 @@ app.use('/testing', (req, res) => {
     res.send({user: req.user, auth: true});
 });
 
-app.get('/', function (req, res) {
-   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
- });
 
+app.get('/', function (req, res) {
+   res.sendFile(path.join(__dirname, 'client/build/index.html'));
+ });
 /* handling 404 */
